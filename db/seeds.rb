@@ -22,9 +22,9 @@ item_prefix = ["Retro", "Groovy", "'70's", "'80's", "Hip", "Vintage"]
 10.times do 
     category = Category.create(name: Faker::Commerce.department)
     10.times do
-        name = item_prefix + " " + item_names.sample
+        name = item_prefix.sample + " " + item_names.sample
         category.items.create(
-            name: item_names.sample,
+            name: name,
             description: Faker::ChuckNorris.fact,
             price: Faker::Commerce.price,
         )
