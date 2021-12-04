@@ -40,24 +40,3 @@ const CateEdit = () => {
 export default CateEdit;
 
 
-// import React from "react";
-
-// const CateEdit = (props) => {
-//   const {id, name} = props.category;
-
-//   return (
-//     <div>
-//       <h1>Update {props.category.name} Form</h1>
-//       <form action = {`/api/categories/${id}`} method = "post">
-//         <input type = "hidden" name = "_method" value = "patch" />
-//         <p>Name:</p>
-//         <input defaultValue={name} name = "category[name]" />
-//         <br />
-//         <br />
-//         <button type = "submit">Update</button>
-//       </form>
-//     </div>
-//   )
-// };
-
-// export default CateEdit;

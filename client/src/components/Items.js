@@ -36,8 +36,9 @@ const Items = () => {
     return items.map((item) => {
       return (
         <div>
-          <Item key={item.id} {...item} />
-          <Link to={`/items/${item.id}`}>View Item</Link>
+          {/* <Item key={item.id} {...item} /> */}
+          <h3>{item.name}</h3>
+          <Link to={`/categories/${id}/items/${item.id}`}>View Item</Link>
         </div>
       )
     });
@@ -48,6 +49,7 @@ const Items = () => {
       <h1>{currentCategory.name}</h1>
       <h2>Items</h2>
       <Link to={`/categories/${currentCategory.id}/edit`} state={{currentCategory}}>Edit this category</Link>
+      {renderItems()}
     </div>
   )
 }

@@ -7,6 +7,7 @@ import Items from './components/Items';
 import Jobs from './components/Jobs';
 import Navbar from "./components/Navbar";
 import CateEditForm from './components/CateEditForm';
+import Item from './components/Item';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/categories" element={<Categories />} />
         <Route path="/categories/:id/items" element={<Items />} />
         <Route path="/categories/:id/edit" element={<CateEditForm />} />
+        <Route path="/categories/:category_id/items/:id" element={<Item />} />
       </Routes>
     </div>
   );
