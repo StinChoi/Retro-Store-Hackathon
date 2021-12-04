@@ -42,7 +42,9 @@ const Items = () => {
 
   return (
     <div>
-      <h1>Items</h1>
+      <h1>{currentCategory.name}</h1>
+      <h2>Items</h2>
+      <Link to={`/categories/${currentCategory.id}/edit`}>Edit this category</Link>
     </div>
   )
 }
