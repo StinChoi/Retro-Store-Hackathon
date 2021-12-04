@@ -46,7 +46,8 @@ const ItemEdit = (props) => {
           <p>Price:</p>
           <input value={price} onChange={(e) => setPrice(e.target.value)} />
           <p>Description:</p>
-          <input value={description} onChange={(e) => setDescription(e.target.value)} />
+          <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
+          <br />
           <button>Submit Your Changes</button>
         </form>
       </div>

@@ -10,7 +10,7 @@ const About = () => {
       <p></p>
       <br />
       <h3>Sky Lin</h3>
-      <p></p>
+      <p>Born and raised in Guangzhou, China. Has a dog named Kuma.</p>
       <br />
       <h3>Austin Choi</h3>
       <p>Born and raised in sunny California.</p>
