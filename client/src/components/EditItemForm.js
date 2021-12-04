@@ -8,7 +8,7 @@ const ItemEdit = (props) => {
   // const location = useLocation();
   // const { item } = location.state;
   const { category_id, id, name: oldName, price: oldPrice, description: oldDescription } = props.item;
-  const{toggleNewForm} = props;
+  const{toggleNewForm, updateUI} = props;
 
   const [name, setName] = useState(oldName);
   const [price, setPrice] = useState(oldPrice);
@@ -22,11 +22,12 @@ const ItemEdit = (props) => {
       description: description,
     };
     await axios.put(`/api/categories/${category_id}/items/${id}`, newItem);
-    setName(newItem.name);
-    setPrice(newItem.price);
-    setDescription(newItem.description);
+    // setName(newItem.name);
+    // setPrice(newItem.price);
+    // setDescription(newItem.description);
     // navigate(`/items/${id}`);
     toggleNewForm();
+    updateUI(newItem);
   };
 
   const handleDelete = async () => {
@@ -49,7 +50,7 @@ const ItemEdit = (props) => {
           <button>Submit Your Changes</button>
         </form>
       </div>
-      <button onClick={() => navigate(`/items/${id}`)}>Cancel</button>
+      {/* <button onClick={() => navigate(`/items/${id}`)}>Cancel</button> */}
     </div>
   );
 };
