@@ -31,10 +31,10 @@ const Jobs = () => {
     }
     return jobs.map((job) => {
       return (
-        <div key = {job.id}>
+        <div key={job.id}>
           <p>Title: {job.title}</p>
           <p>Company: {job.company}</p>
-          <Link to={`/jobs/${job.id}`}>View this Job Position</Link>
+          <Link to={`/jobs/${job.id}`} state={{ job }}>View this Job Position</Link>
         </div>
       );
     })
@@ -42,8 +42,8 @@ const Jobs = () => {
   return (
     <div>
       <h1>Careers Listed Below</h1>
-      <button onClick = {toggleNewForm}>{showNewForm ? "Cancel" : "New Job"}</button>
-      {showNewForm && <JobAddForm addJob = {addJob}/>}
+      <button onClick={toggleNewForm}>{showNewForm ? "Cancel" : "New Job"}</button>
+      {showNewForm && <JobAddForm addJob={addJob} />}
       {renderJobs()}
     </div>
   );
