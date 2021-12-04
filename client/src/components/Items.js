@@ -38,7 +38,7 @@ const Items = () => {
         <div>
           {/* <Item key={item.id} {...item} /> */}
           <h3>{item.name}</h3>
-          <Link to={`/categories/${id}/items/${item.id}`}>View Item</Link>
+          <Link to={`/categories/${id}/items/${item.id}`} state={{item}}>View Item</Link>
         </div>
       )
     });

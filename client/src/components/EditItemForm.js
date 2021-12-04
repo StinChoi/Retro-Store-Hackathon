@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import axios from "axios";
 
-const ItemEdit = () => {
+const ItemEdit = (props) => {
 
   const navigate = useNavigate();
-  const location = useLocation();
-  const { item } = location.state;
-  const { id, name: oldName, price: oldPrice, description: oldDescription } = item;
+  // const location = useLocation();
+  // const { item } = location.state;
+  const { category_id, id, name: oldName, price: oldPrice, description: oldDescription } = props.item;
+  const{toggleNewForm} = props;
 
   const [name, setName] = useState(oldName);
   const [price, setPrice] = useState(oldPrice);
@@ -20,13 +21,17 @@ const ItemEdit = () => {
       price: price,
       description: description,
     };
-    await axios.put(`/api/items/${id}`, newItem);
-    navigate(`/items/${id}`);
+    await axios.put(`/api/categories/${category_id}/items/${id}`, newItem);
+    setName(newItem.name);
+    setPrice(newItem.price);
+    setDescription(newItem.description);
+    // navigate(`/items/${id}`);
+    toggleNewForm();
   };
 
-  const handleDelete = async (e) => {
-    await axios.delete(`/api/items/${id}`);
-    navigate("/items");
+  const handleDelete = async () => {
+    await axios.delete(`/api/categories/${category_id}/items/${id}`);
+    navigate(`/categories/${category_id}/items`);
   };
 
   return (
