@@ -3,23 +3,26 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Item from "./Item";
-import { useLocation } from "react-router";
+import { useLocation, useParams } from "react-router";
 
 const Items = () => {
   const [items, setItems] = useState([]);
   const [currentCategory, setCategory] = useState({});
-  const location = useLocation();
-  const {category} = location.state;
+  const { id } = useParams();
+  //const location = useLocation();
+  //const {category} = location.state;
   
   useEffect(() => {
     console.log("mounted");
-    getItems();
-    setCategory(category);
+    getData();
+    // setCategory(category);
   }, []);
 
-  const getItems = async () => {
-    let response = await axios.get("/api/items");
+  const getData = async () => {
+    let response = await axios.get(`/api/categories/${id}/items`);
+    let catResponse = await axios.get(`/api/categories/${id}`);
     setItems(response.data);
+    setCategory(catResponse.data)
   };
 
   // const addItem = (item) => {
