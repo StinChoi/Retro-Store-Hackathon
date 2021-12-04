@@ -1,20 +1,29 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Job from "./Job";
+import JobAddForm from "./JobAddForm";
 
 
 const Jobs = () => {
+  const [showNewForm, setShowNewForm] = useState(false);
   const [jobs, setJobs] = useState([]);
+
   useEffect(() => {
     getJobs();
   }, []);
+
   const getJobs = async () => {
     let response = await axios.get("/api/jobs");
     setJobs(response.data);
   };
 
-  // Adding jobs here?
+  const toggleNewForm = () => {
+    setShowNewForm(!showNewForm);
+  }
+
+  const addJob = (job) => {
+    setJobs([job, ...jobs]);
+  }
 
   const renderJobs = () => {
     if (jobs.length === 0) {
@@ -22,8 +31,9 @@ const Jobs = () => {
     }
     return jobs.map((job) => {
       return (
-        <div>
-          <Job key={job.id} {...job} />
+        <div key = {job.id}>
+          <p>Title: {job.title}</p>
+          <p>Company: {job.company}</p>
           <Link to={`/jobs/${job.id}`}>View this Job Position</Link>
         </div>
       );
@@ -32,8 +42,9 @@ const Jobs = () => {
   return (
     <div>
       <h1>Careers Listed Below</h1>
-      {/* <JobForm addJob={addJob} /> */}
-      {renderJobs()};
+      <button onClick = {toggleNewForm}>{showNewForm ? "Cancel" : "New Job"}</button>
+      {showNewForm && <JobAddForm addJob = {addJob}/>}
+      {renderJobs()}
     </div>
   );
 };
