@@ -41,7 +41,9 @@ const JobEdit = (props) => {
           <p>Salary:</p>
           <input value={salary} onChange={(e) => setSalary(e.target.value)} />
           <p>Company:</p>
-          <input value={company} onChange={(e) => setCompany(e.target.value)} />
+          <textarea value={company} onChange={(e) => setCompany(e.target.value)} />
+          <br />
+          <br />
           <button>Submit Your Changes</button>
         </form>
       </div>
