@@ -44,7 +44,7 @@ const Items = () => {
     <div>
       <h1>{currentCategory.name}</h1>
       <h2>Items</h2>
-      <Link to={`/categories/${currentCategory.id}/edit`}>Edit this category</Link>
+      <Link to={`/categories/${currentCategory.id}/edit`} state={{currentCategory}}>Edit this category</Link>
     </div>
   )
 }
