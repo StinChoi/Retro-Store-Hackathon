@@ -31,13 +31,13 @@ const Jobs = () => {
     }
     return jobs.map((job) => {
       return (
-        <div key={job.id}>
+        <div key={job.id} className="job-container">
           <p>Title: {job.title}</p>
           <p>Company: {job.company}</p>
           <Link to={`/jobs/${job.id}`} state={{ job }}>View this Job Position</Link>
         </div>
       );
-    })
+    });
   };
   return (
     <div>

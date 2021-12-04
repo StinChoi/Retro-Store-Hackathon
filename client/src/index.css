@@ -19,5 +19,22 @@ code {
   margin-top: 10px;
   width: 1000px;
   justify-content: space-around;
-  
+}
+
+.item-container {
+  border: 2px solid #457553;
+  padding: 5px;
+  margin: auto;
+  margin-top: 10px;
+  width: 1000px;
+  justify-content: space-around;
+}
+
+.job-container {
+  border: 2px solid #ebc45a;
+  padding: 5px;
+  margin: auto;
+  margin-top: 10px;
+  width: 1000px;
+  justify-content: space-around;
 }

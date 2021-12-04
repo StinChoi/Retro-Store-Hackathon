@@ -35,8 +35,11 @@ const ItemNew = (props) => {
           <p>Item Price:</p>
           <input value={price} onChange={(e) => setPrice(e.target.value)} />
           <p>Item Description:</p>
-          <input value={description} onChange={(e) => setDescription(e.target.value)} />
+          <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
+          <br />
+          <br />
           <button>Create New Item</button>
+          <hr />
         </form>
       </div>
     </div>
