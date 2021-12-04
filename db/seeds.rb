@@ -8,9 +8,9 @@
 require 'faker'
 
 prevCats = Category.all.length
-prevJobs = Jobs.all.length
+prevJobs = Job.all.length
 Category.destroy_all
-Jobs.destroy_all
+Job.destroy_all
 
 puts "#{prevCats} categories cleared"
 puts "#{prevJobs} jobs cleared"
@@ -28,6 +28,14 @@ item_names = [Faker::Commerce.product_name, Faker::Game.title, Faker::Movie.titl
     end
 end
 
+10.times do 
+    Job.create(
+        title: Faker::Company.profession,
+        company: Faker::Company.name,
+        salary: rand(10000...100000),
+    )
+end
+
 # games = Category.create(name: "Games")
 # shirts = Category.create(name: "Shirts")
 # posters = Category.create(name: "Posters")
@@ -37,3 +45,4 @@ end
 # posters.items.create(name: "Grateful Dead", description: "Hippies Man", price: 4.99)
 
 puts "seeded#{Category.all.length} categories"
+puts "seeded #{Job.all.length} jobs"
