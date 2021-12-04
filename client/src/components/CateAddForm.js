@@ -9,7 +9,7 @@ const CateAddForm = (props) => {
     e.preventDefault();
     let cateData = {name: name};
     let res = await axios.post(`/api/categories`, cateData);
-    // addCategory(res.data);
+    addCategory(res.data);
   }
 
   return (

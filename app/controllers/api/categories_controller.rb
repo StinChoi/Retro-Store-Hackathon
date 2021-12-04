@@ -9,7 +9,7 @@ class Api::CategoriesController < ApplicationController
     def create
         @category = Category.new(set_params)
         if @category.save
-            render json: @category
+            render json: @category, include: [:items]
         else
             render json: {errors: @category.errors}, status: 422 # :unprocessable_entity
         end
