@@ -16,9 +16,9 @@ const Items = () => {
     setItems(response.data);
   };
 
-  const addItem = (item) => {
-    setItems([...items, item]);
-  };
+  // const addItem = (item) => {
+  //   setItems([...items, item]);
+  // };
 
   const renderItems = () => {
     if (items.length === 0) {
