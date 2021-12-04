@@ -16,10 +16,13 @@ puts "#{prevCats} categories cleared"
 puts "#{prevJobs} jobs cleared"
 
 item_names = [Faker::Commerce.product_name, Faker::Game.title, Faker::Movie.title]
+item_prefix = ["Retro", "Groovy", "'70's", "'80's", "Hip", "Vintage"]
+
 
 10.times do 
     category = Category.create(name: Faker::Commerce.department)
     10.times do
+        name = item_prefix + " " + item_names.sample
         category.items.create(
             name: item_names.sample,
             description: Faker::ChuckNorris.fact,
