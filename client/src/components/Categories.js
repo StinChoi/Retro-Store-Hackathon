@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CateAddForm from "./CateAddForm";
+import { Link } from "react-router-dom";
 
 const Categories = () => {
   const [showNewForm, setShowNewForm] = useState(false);
@@ -39,6 +40,7 @@ const Categories = () => {
             <p>Name: {category.name}</p>
             {renderItems()}
             <br />
+            <Link to={`/categories/${category.id}/items`} state={{category}}>Shop this category</Link>
           </div>
           );
       });

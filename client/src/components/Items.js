@@ -3,12 +3,18 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Item from "./Item";
+import { useLocation } from "react-router";
 
 const Items = () => {
   const [items, setItems] = useState([]);
+  const [currentCategory, setCategory] = useState({});
+  const location = useLocation();
+  const {category} = location.state;
+  
   useEffect(() => {
     console.log("mounted");
     getItems();
+    setCategory(category);
   }, []);
 
   const getItems = async () => {
