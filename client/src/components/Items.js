@@ -4,9 +4,11 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Item from "./Item";
 import { useLocation, useParams } from "react-router";
+import ItemNew from "./NewItemForm";
 
 const Items = () => {
   const [items, setItems] = useState([]);
+  const [showNewForm, setShowNewForm] = useState(false);
   const [currentCategory, setCategory] = useState({});
   const { id } = useParams();
   //const location = useLocation();
@@ -18,6 +20,10 @@ const Items = () => {
     // setCategory(category);
   }, []);
 
+  const toggleNewForm = () => {
+    setShowNewForm(!showNewForm);
+  };
+
   const getData = async () => {
     let response = await axios.get(`/api/categories/${id}/items`);
     let catResponse = await axios.get(`/api/categories/${id}`);
@@ -25,9 +31,9 @@ const Items = () => {
     setCategory(catResponse.data)
   };
 
-  // const addItem = (item) => {
-  //   setItems([...items, item]);
-  // };
+  const addItem = (item) => {
+    setItems([...items, item]);
+  };
 
   const renderItems = () => {
     if (items.length === 0) {
@@ -46,9 +52,13 @@ const Items = () => {
 
   return (
     <div>
+      <Link to={"/categories"}>Back to Shop</Link>
       <h1>{currentCategory.name}</h1>
-      <h2>Items</h2>
       <Link to={`/categories/${currentCategory.id}/edit`} state={{currentCategory}}>Edit this category</Link>
+      <br/>
+      <button onClick = {toggleNewForm}>{showNewForm ? "Cancel" : "Add New Item"}</button>
+      {showNewForm && <ItemNew addItem = {addItem} toggleNewForm={toggleNewForm}/>}
+      <h2>Items</h2>
       {renderItems()}
     </div>
   )

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 const CateEdit = () => {
   const navigate = useNavigate();
@@ -22,6 +23,7 @@ const CateEdit = () => {
   return (
     <div>
       <h1>Edit "{initialName}"</h1>
+      <Link to={`/categories/${id}/items`}>Back to category</Link>
       <form onSubmit={handleSubmit}>
         <p>Name</p>
         <input value = {name} onChange = {(e) => {

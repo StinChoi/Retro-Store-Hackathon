@@ -1,9 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
-const ItemNew = () => {
-
+const ItemNew = (props) => {
+  const {addItem, toggleNewForm} = props;
+  const {id} = useParams();
   const navigate = useNavigate();
 
   const [name, setName] = useState("");
@@ -18,8 +19,10 @@ const ItemNew = () => {
       price: price,
       description: description,
     };
-    await axios.post("/api/items", newItem);
-    navigate("/items");
+    await axios.post(`/api/categories/${id}/items`, newItem);
+    // navigate("/items");
+    addItem(newItem);
+    toggleNewForm();
   };
 
   return (
