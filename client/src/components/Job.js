@@ -7,7 +7,7 @@ const Job = () => {
 
   const location = useLocation();
   const { job } = location.state;
-  const { job_id, id } = useParams();
+  // const { job_id, id } = useParams();
   const [showEditForm, setShowEditForm] = useState(false);
   const [title, setTitle] = useState(job.title);
   const [salary, setSalary] = useState(job.salary);
@@ -25,7 +25,7 @@ const Job = () => {
 
   return (
     <div>
-      <Link to={`/jobs/${job_id}/jobs`}>Back to Job Listings</Link>
+      <Link to={`/jobs`}>Back to Job Listings</Link>
       <p>Name: {title}</p>
       <p>Salary: {salary}</p>
       <p>Company: {company}</p>

@@ -2,8 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Item from "./Item";
-import { useLocation, useParams } from "react-router";
+import { useParams } from "react-router";
 import ItemNew from "./NewItemForm";
 
 const Items = () => {
@@ -18,7 +17,7 @@ const Items = () => {
     console.log("mounted");
     getData();
     // setCategory(category);
-  }, []);
+  },[]);
 
   const toggleNewForm = () => {
     setShowNewForm(!showNewForm);
@@ -41,7 +40,7 @@ const Items = () => {
     }
     return items.map((item) => {
       return (
-        <div>
+        <div key = {item.id} className="item-container">
           {/* <Item key={item.id} {...item} /> */}
           <h3>{item.name}</h3>
           <Link to={`/categories/${id}/items/${item.id}`} state={{item}}>View Item</Link>
