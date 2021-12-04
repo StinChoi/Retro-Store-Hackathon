@@ -8,6 +8,7 @@ import Jobs from './components/Jobs';
 import Navbar from "./components/Navbar";
 import CateEditForm from './components/CateEditForm';
 import Item from './components/Item';
+import Job from './components/Job';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/jobs" element={<Jobs />} />
+        <Route path="/jobs/:id" element={<Job />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/categories/:id/items" element={<Items />} />
         <Route path="/categories/:id/edit" element={<CateEditForm />} />

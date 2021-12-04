@@ -23,8 +23,11 @@ const Jobs = () => {
     return jobs.map((job) => {
       return (
         <div>
-          <Job key={job.id} {...job} />
-          <Link to={`/jobs/${job.id}`}>View this Job Position</Link>
+          <p>Job Available</p>
+          <p>{jobs.title}</p>
+          <p>{jobs.salary}</p>
+          <p>{jobs.company}</p>
+          <Link to={`/jobs/${job.id}`}>View Here</Link>
         </div>
       );
     })
