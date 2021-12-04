@@ -4,6 +4,8 @@ const About = () => {
   return (
     <div>
       <h1>About</h1>
+      <p>You can find anything you like here! We are hiring, please check out our Careers Page!</p>
+      <hr />
       <h2>Founders of Everything Retro</h2>
       <br />
       <h3>Fabio Xavier</h3>

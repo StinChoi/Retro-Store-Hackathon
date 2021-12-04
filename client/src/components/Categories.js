@@ -36,10 +36,9 @@ const Categories = () => {
           );
         };
         return(
-          <div key = {category.id}>
-            <p>Name: {category.name}</p>
-            {renderItems()}
-            <br />
+          <div key = {category.id} className= "cate-container">
+            <h3>{category.name}</h3>
+            <p><b>Items: </b>{renderItems()}</p>
             <Link to={`/categories/${category.id}/items`} state={{category}}>Shop this category</Link>
           </div>
           );
